@@ -1,4 +1,4 @@
-//Les candidats sont (dans l'ordre) : M.Casali,M.Betari,M.Martin-Nevot
+//Les candidats sont (dans l'ordre) : M.Casali,M.Martin-Nevot,M.Betari
 //premier tour
 40
 40
