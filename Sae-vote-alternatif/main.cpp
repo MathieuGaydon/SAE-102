@@ -25,7 +25,7 @@ unsigned gagnant(const vector<int> & voix, const vector<int> & secondTour){
 
 
 
-vector<int> lireEntree(vector<int> & premier, vector<int> & second){
+void lireEntree(vector<int> & premier, vector<int> & second){
     string ligne;
     bool secondTour = false;
 
@@ -41,7 +41,6 @@ vector<int> lireEntree(vector<int> & premier, vector<int> & second){
             second.push_back(valeur);
         }
     }
-
 }
 
 int main(){
@@ -50,7 +49,7 @@ int main(){
 
     lireEntree(premierTour,secondTour);
 
-    unsigned gagn = gagnant(tabPremierTour,tabSecondTour);
+    unsigned gagn = gagnant(premierTour,secondTour);
 
     //nom des candidats
     vector<string> candidats = {"M.Casali","M.Martin-Nevot","M.Betari"};
@@ -70,5 +69,4 @@ int main(){
     cout << "Le gagnant est : " << candidats[gagn] << endl;
 
     return 0;
-
 }
