@@ -1,9 +1,7 @@
-//Les candidats sont (dans l'ordre) : M.Casali,M.Martin-Nevot,M.Betari
-//premier tour
 40
 40
 20
-//deuxième tour
+//
 40
 60
 0

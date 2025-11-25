@@ -1,7 +1,6 @@
-#include <QCoreApplication>
-#include <fstream>
 #include <iostream>
 #include <vector>
+#include <string>
 using namespace std;
 
 unsigned gagnant(const vector<int> & voix, const vector<int> & secondTour){
@@ -26,80 +25,50 @@ unsigned gagnant(const vector<int> & voix, const vector<int> & secondTour){
 
 
 
-vector<int> lireValeur(){
-    vector<int> valeurPremierTour;
-    ifstream fichier("entreePremierTest.txt");
-    //ifstream fichier("entreeSecondTest.txt");
+vector<int> lireEntree(vector<int> & premier, vector<int> & second){
     string ligne;
-    /* On met les valeurs dans le tab du premier tour */
-    while(getline(fichier,ligne)){
-        if(ligne.empty() || ligne.substr(0,2) == "//"){
+    bool secondTour = false;
+
+    while(cin >>ligne){
+        if(ligne == "//"){
+            secondTour = true;
             continue;
         }
-        if(valeurPremierTour.size() < 3){
-            valeurPremierTour.push_back(stoi(ligne));
-        }
-        if(valeurPremierTour.size()==3){
-            break;
-        }
-    }
-    fichier.close();
-    return valeurPremierTour;
-}
-
-vector<int> lireValeur2(){
-    vector<int> valeurSecondTour;
-    ifstream fichier("entreePremierTest.txt");
-    //ifstream fichier("entreeSecondTest.txt");
-    string ligne;
-    /* On met les valeurs dans le tab du premier tour */
-    while (getline(fichier, ligne)) {
-        if (ligne == "//deuxième tour")
-            break;
-    }
-    while(getline(fichier,ligne)){
-        if(ligne.empty() || ligne.substr(0,2) == "//"){
-            continue;
-        }
-        if(valeurSecondTour.size() < 3){
-            valeurSecondTour.push_back(stoi(ligne));
-        }
-        if(valeurSecondTour.size()==3){
-            break;
+        int valeur = stoi(ligne);
+        if(!secondTour && premier.size() < 3){
+            premier.push_back(valeur);
+        }else if(secondTour && second.size() < 3){
+            second.push_back(valeur);
         }
     }
-
-    fichier.close();
-    return valeurSecondTour;
 
 }
 
 int main(){
-    vector<int> tabPremierTour = lireValeur();
-    vector<int> tabSecondTour = lireValeur2();
-    unsigned indice = gagnant(tabPremierTour,tabSecondTour);
+    vector<int> premierTour;
+    vector<int> secondTour;
 
-    cout << "valeurs du premier tour : ";
-    for(int j = 0;j < tabPremierTour.size();j++){
-        cout << tabPremierTour[j] << " ";
+    lireEntree(premierTour,secondTour);
+
+    unsigned gagn = gagnant(tabPremierTour,tabSecondTour);
+
+    //nom des candidats
+    vector<string> candidats = {"M.Casali","M.Martin-Nevot","M.Betari"};
+
+    cout << "Premier tour : ";
+    for(int j : premierTour){
+        cout << j << " ";
     }
     cout << endl;
-    /*
-    cout << "valeurs du Second tour : ";
-    for(int k = 0;k < tabSecondTour.size();k++){
-        cout << tabSecondTour[k] << " ";
-    }
-    cout << endl; */
 
-    if(indice == 0){
-        cout << "Le gagnant est : M.Casali" << endl;
+    cout << "Second tour : ";
+    for(int j : secondTour){
+        cout << j << " ";
     }
-    else if(indice == 1){
-        cout << "Le gagnant est : M.Martin-Nevot" << endl;
-    }
-    else{
-        cout << "Le gagnant est : M.Betari" << endl;
-    }
+    cout << endl;
 
+    cout << "Le gagnant est : " << candidats[gagn] << endl;
+
+    return 0;
 
 }
