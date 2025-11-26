@@ -11,30 +11,33 @@ struct ElecteurAlternatif {
     vector<int> choix;
 };
 
-// --- FONCTIONS UTILITAIRES ---
 string lireChaine() {
     string str;
+
     while (true) {
         getline(cin, str);
-        if (!cin) return ""; 
-        if (str.empty()) continue; 
-        if (str.length() >= 2 && str.substr(0, 2) == "//") continue; 
+        if (!cin) return "";
+        if (str.empty()) continue;
+        if (str.length() >= 2 && str.substr(0, 2) == "//") continue;
+
         return str;
     }
 }
 
 int lireEntier() {
     string str;
+
     while (true) {
         getline(cin, str);
-        if (!cin) return -1; 
+        if (!cin) return -1;
         if (str.empty()) continue;
         if (str.length() >= 2 && str.substr(0, 2) == "//") continue;
+
         break;
     }
+
     return stoi(str);
 }
-// -----------------------------
 
 int main()
 {
@@ -49,24 +52,24 @@ int main()
 
     // 2. Lecture Electeurs et Preferences
     vector<ElecteurAlternatif> electeurs;
-    
+
     while(true) {
         ElecteurAlternatif e;
-        e.nom = lireChaine(); 
-        if(e.nom == "") break; 
-        
+        e.nom = lireChaine();
+        if(e.nom == "") break;
+
         e.prenom = lireChaine();
 
-        // Lecture securisee de la ligne de choix (ex: "0 2 1")
         string ligneVote;
         while(true) {
             getline(cin, ligneVote);
-            if(!cin) break; 
-            if(ligneVote.empty()) continue; 
-            if(ligneVote.length() >= 2 && ligneVote.substr(0, 2) == "//") continue; 
-            break; 
+            if(!cin) break;
+            if(ligneVote.empty()) continue;
+            if(ligneVote.length() >= 2 && ligneVote.substr(0, 2) == "//") continue;
+
+            break;
         }
-        
+
         stringstream ss(ligneVote);
         int preference;
         while(ss >> preference) {
@@ -87,7 +90,7 @@ int main()
                 if(indexCand >= 0 && indexCand < nbCandidats && !elimine[indexCand]) {
                     compte[indexCand]++;
                     totalVotesValides++;
-                    break; 
+                    break;
                 }
             }
         }
@@ -112,7 +115,7 @@ int main()
                 indexPerdant = i;
             }
         }
-        
+
         // Cas s'il ne reste qu'un seul candidat
         int restants = 0;
         int dernierSurvivant = -1;
@@ -122,7 +125,7 @@ int main()
                 dernierSurvivant = i;
             }
         }
-        
+
         if (restants == 1) {
              cout << "Gagnant (Dernier restant) : " << candidats[dernierSurvivant] << endl;
              return 0;

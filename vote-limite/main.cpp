@@ -17,33 +17,36 @@ struct ResultatCandidat {
     int votes;
 };
 
-// --- FONCTIONS UTILITAIRES ---
 string lireChaine() {
     string str;
+
     while (true) {
         getline(cin, str);
         if (!cin) return "";
         if (str.empty()) continue;
         if (str.length() >= 2 && str.substr(0, 2) == "//") continue;
+
         return str;
     }
 }
 
 int lireEntier() {
     string str;
+
     while (true) {
         getline(cin, str);
         if (!cin) return -1;
         if (str.empty()) continue;
         if (str.length() >= 2 && str.substr(0, 2) == "//") continue;
+
         break;
     }
+
     return stoi(str);
 }
-// -----------------------------
 
 bool comparerCandidats(const ResultatCandidat &a, const ResultatCandidat &b) {
-    return a.votes > b.votes; // Ordre decroissant
+    return a.votes > b.votes;
 }
 
 int main()

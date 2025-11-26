@@ -10,30 +10,33 @@ struct Electeur {
     int vote;
 };
 
-// --- FONCTIONS UTILITAIRES ---
 string lireChaine() {
     string str;
+
     while (true) {
         getline(cin, str);
         if (!cin) return "";
         if (str.empty()) continue;
         if (str.length() >= 2 && str.substr(0, 2) == "//") continue;
+
         return str;
     }
 }
 
 int lireEntier() {
     string str;
+
     while (true) {
         getline(cin, str);
         if (!cin) return -1;
         if (str.empty()) continue;
         if (str.length() >= 2 && str.substr(0, 2) == "//") continue;
+
         break;
     }
+
     return stoi(str);
 }
-// -----------------------------
 
 int main() {
     // 1. Lecture des Candidats
@@ -50,7 +53,8 @@ int main() {
     while(true) {
         Electeur e;
         string nomL = lireChaine();
-        if(nomL == "") break; // Fin du fichier
+        if(nomL == "") break;
+
         e.nom = nomL;
         e.prenom = lireChaine();
         e.vote = lireEntier();
@@ -61,6 +65,7 @@ int main() {
     int totalVotesValides = 0;
     for (size_t i = 0; i < electeurs.size(); i++) {
         int indexCandidat = electeurs[i].vote;
+
         if(indexCandidat >= 0 && indexCandidat < nbCandidats) {
             compteVotes[indexCandidat]++;
             totalVotesValides++;
@@ -74,6 +79,7 @@ int main() {
     for(int i = 0; i < nbCandidats; i++) {
         if(compteVotes[i] > totalVotesValides / 2) {
             cout << "Gagnant par majorite absolue : " << candidats[i] << endl;
+
             return 0;
         }
     }
@@ -87,6 +93,7 @@ int main() {
             // L'ancien premier devient second
             secondScore = premierScore;
             secondIndex = premierIndex;
+
             // Nouveau premier
             premierScore = compteVotes[i];
             premierIndex = i;
