@@ -1,0 +1,34 @@
+3
+// Candidats
+A
+B
+C
+// Votes
+// 2 votes pour A (prefere C ensuite)
+V1
+X
+0 2 1
+V2
+X
+0 2 1
+// 2 votes pour B (prefere C ensuite)
+V3
+X
+1 2 0
+V4
+X
+1 2 0
+// 3 votes pour C (C gagne si A et B s'eliminent, mais ici elimination du plus faible)
+// Scenario force : A=2, B=2, C=3.
+// Total 7. Majorite a 4. Personne ne gagne.
+// On elimine A ou B (supposons A par indice). Les votes de A vont a C.
+// C monte a 5. C gagne.
+V5
+X
+2 0 1
+V6
+X
+2 1 0
+V7
+X
+2 0 1

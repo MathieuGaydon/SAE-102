@@ -1,0 +1,22 @@
+4
+// Liste des candidats
+Rouge
+Bleu
+Vert
+Jaune
+// Votes
+Electeur1
+A
+0
+Electeur2
+B
+1
+Electeur3
+C
+2
+Electeur4
+D
+0
+Electeur5
+E
+1

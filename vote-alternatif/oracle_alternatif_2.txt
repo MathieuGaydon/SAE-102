@@ -1,0 +1,9 @@
+--- Tour 1 ---
+A : 2
+B : 2
+C : 3
+Elimination de : A
+--- Tour 2 ---
+B : 2
+C : 5
+Gagnant : C

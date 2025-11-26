@@ -1,0 +1,18 @@
+3
+// Liste des candidats
+Alice
+Bob
+Charlie
+// Votes
+Dupont
+Jean
+0
+Martin
+Paul
+0
+Durand
+Marie
+0
+Petit
+Luc
+1

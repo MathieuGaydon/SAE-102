@@ -1,0 +1,18 @@
+3
+// Candidats
+Lion
+Tigre
+Ours
+// Votes (Lion tres populaire)
+V1
+Test
+0
+V2
+Test
+0
+V3
+Test
+0
+V4
+Test
+2

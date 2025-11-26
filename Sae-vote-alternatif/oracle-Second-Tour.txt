@@ -1,3 +1,0 @@
-Premier tour : 40 40 20 
-Second tour : 40 60 0 
-Le gagnant est : M.Martin-Nevot

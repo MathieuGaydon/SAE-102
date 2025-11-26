@@ -1,0 +1,22 @@
+4
+// Candidats
+Pierre
+Paul
+Jacques
+Jean
+// Votes
+Votant1
+A
+0
+Votant2
+B
+1
+Votant3
+C
+0
+Votant4
+D
+1
+Votant5
+E
+2

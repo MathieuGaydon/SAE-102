@@ -1,0 +1,3 @@
+Resultats du Vote Limite (2 sieges) :
+Siege 1 : Pierre avec 2 votes.
+Siege 2 : Paul avec 2 votes.
